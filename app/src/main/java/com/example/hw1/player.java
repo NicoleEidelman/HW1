@@ -9,11 +9,11 @@ public class player {
 
     public int getImage() {return playerImage;}
 
-    public int playerLocation() {return playerLocation;}
+    public int Location() {return playerLocation;}
 
 
 
-    public void playerLocationRight() {playerLocation++;}
+    public void moveRight() {playerLocation++;}
 
-    public void playerLocationLeft() {playerLocation--;}
+    public void moveLeft() {playerLocation--;}
 }

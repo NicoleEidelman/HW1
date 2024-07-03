@@ -51,6 +51,20 @@
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/trivia_LBL_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/trivia_LAY_heartLayout"
+        android:layout_alignBottom="@id/trivia_LAY_heartLayout"
+        android:layout_marginStart="16dp"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:text="000"/>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -94,8 +108,21 @@
             android:layout_weight="1"
 
             />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/game_LAY_03"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
 
+            />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/game_LAY_04"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            />
 
     </LinearLayout>
 
@@ -123,6 +150,20 @@
                 />
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/game_LAY_12"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_13"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_14"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -160,6 +201,20 @@
                 android:layout_weight="1"
 
                 />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_23"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_24"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
 
         </LinearLayout>
 
@@ -187,6 +242,20 @@
             />
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/game_LAY_32"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/game_LAY_33"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/game_LAY_34"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -228,6 +297,20 @@
                 android:layout_weight="1"
 
                 />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_43"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_44"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -261,10 +344,167 @@
                 android:layout_weight="1"
 
                 />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_53"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_54"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/game_LAY_6"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_60"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_61"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_62"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_63"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_64"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
 
         </LinearLayout>
 
 
+        <LinearLayout
+            android:id="@+id/game_LAY_7"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_70"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_71"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_72"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_73"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_74"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/game_LAY_8"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_80"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_81"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_82"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_83"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/game_LAY_84"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                />
+
+        </LinearLayout>
 
 
 

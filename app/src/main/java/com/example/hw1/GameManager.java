@@ -1,8 +1,6 @@
 package com.example.hw1;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
-import android.view.View;
+
+import com.example.hw1.Interface.GameObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,106 +8,114 @@ import java.util.List;
 import java.util.Random;
 
 public class GameManager {
-    private static final int MAX = 3;
+    private static final int COL = 5;
     private static final int MAXLIVES = 3;
-    private static final int LIMIT = 4;
+    private static final int ROW = 7;
     private static final int MIN = 0;
-    private player player;
-    private List<obstacle> obstacles;
-
+    private final player player;
+    private final List<GameObject> gameObjects;
     private int lives = 3;
     private int timerCounter = 1;
+    private GameObject collidedObject;
 
-
-
-public GameManager(){
-    player = new player();
-    obstacles = new ArrayList<>();
-
-}
-
-
-
-
+    public GameManager() {
+        player = new player();
+        gameObjects = new ArrayList<>();
+    }
 
     public int playerLocation() {
-        return player.playerLocation();
+        return player.Location();
     }
 
     public int moveRight() {
-        if (player.playerLocation() + 1 < MAX) {
-            player.playerLocationRight();
-
+        if (player.Location() + 1 < COL) {
+            player.moveRight();
         }
-        return player.playerLocation();
+        return player.Location();
     }
 
     public int moveLeft() {
-        if (player.playerLocation() - 1 >= MIN) {
-            player.playerLocationLeft();
+        if (player.Location() - 1 >= MIN) {
+            player.moveLeft();
         }
-        return player.playerLocation();
+        return player.Location();
     }
 
-    public int getPlayerImage() {return player.getImage();}
-
-    public int getLives() {return lives;}
-    public void updateLives(){lives=MAXLIVES;}
-
-    public void addNewObs(){
-        Random rand = new Random();
-        int col = rand.nextInt(MAX);
-            obstacles.add(new obstacle(col));
+    public int getPlayerImage() {
+        return player.getImage();
     }
-    
+
+    public int getLives() {
+        return lives;
+    }
+    public int getMaxlives(){return MAXLIVES;}
+    public void updateLives() {
+        lives = MAXLIVES;
+    }
+
+    public void addNewGameObject(GameObject gameObject) {
+        gameObjects.add(gameObject);
+    }
+
     public boolean nextBlock() {
-        moveObsInMat();
+        moveGameObjectsInMat();
         boolean collisionOccurred = checkCollisions();
         timerCounter++;
         if (timerCounter % 2 == 0) { // Add a new obstacle every other tick
-            addNewObs();
+            addNewGameObject(new obstacle(new Random().nextInt(COL)));
+        }
+        if (timerCounter % 4 == 0 && lives < MAXLIVES) { // Add a new coin every 4th tick if lives < MAXLIVES
+            addNewGameObject(new Coin(new Random().nextInt(COL)));
         }
         return collisionOccurred;
     }
 
     private boolean checkCollisions() {
         boolean collisionOccurred = false;
-        for (obstacle obs : obstacles) {
-            if (obs.obstacleRowLocation() == LIMIT && obs.getCol() == player.playerLocation()) {
-                lives--;
-
-                collisionOccurred = true;
-                if (lives == 0) {
-
+        collidedObject = null;
+        Iterator<GameObject> it = gameObjects.iterator();
+        while (it.hasNext()) {
+            GameObject gameObject = it.next();
+            if (gameObject.getRowLocation() == ROW && gameObject.getCol() == player.Location()) {
+                if (gameObject instanceof obstacle) {
+                    lives--;
+                    collisionOccurred = true;
+                    collidedObject = gameObject;
+                    it.remove();
+                } else if (gameObject instanceof Coin) {
+                    if (lives < MAXLIVES) {
+                        lives++;
+                    }
+                    collisionOccurred = true;
+                    collidedObject = gameObject;
+                    it.remove();
                 }
-                break;
             }
         }
         return collisionOccurred;
     }
 
-    public void moveObsInMat(){
-        Iterator<obstacle> it = obstacles.iterator();
-        while(it.hasNext()){
-            obstacle obs = it.next();
-            if(obs.obstacleRowLocation() + 1 > LIMIT) {
+    public void moveGameObjectsInMat() {
+        Iterator<GameObject> it = gameObjects.iterator();
+        while (it.hasNext()) {
+            GameObject gameObject = it.next();
+            if (gameObject.getRowLocation() + 1 > ROW) {
                 it.remove();
+            } else {
+                gameObject.moveRowLocation();
             }
-            else {
-
-                obs.obstacleMoveRowLocation();
-            }
-
         }
     }
 
-    public List<obstacle> getObstacles() {
-        return obstacles;
+    public void clearCoins() {
+        gameObjects.removeIf(gameObject -> gameObject instanceof Coin);
     }
 
+    public List<GameObject> getGameObjects() {
+        return gameObjects;
+    }
 
-
-
-
-
+    public GameObject getCollidedObject() {
+        return collidedObject;
+    }
 }

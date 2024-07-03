@@ -1,6 +1,8 @@
 package com.example.hw1;
 
-public class obstacle {
+import com.example.hw1.Interface.GameObject;
+
+public class obstacle implements GameObject {
 
     private final int obstacleImage;
     private int obstacleRow;
@@ -12,14 +14,23 @@ public class obstacle {
         this.obstacleRow = 0;
     }
 
+    @Override
+    public int getImage() {
+        return obstacleImage;
+    }
 
-    public int getObstacleImage() {return obstacleImage;}
+    @Override
+    public int getRowLocation() {
+        return obstacleRow;
+    }
 
-    public int obstacleRowLocation() {return obstacleRow;}
+    @Override
+    public void moveRowLocation() {
+        obstacleRow++;
+    }
 
-    public int obstacleMoveRowLocation() {return obstacleRow++;}
-
-    public int getCol(){return col;}
-
-
+    @Override
+    public int getCol() {
+        return col;
+    }
 }
