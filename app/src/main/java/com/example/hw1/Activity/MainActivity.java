@@ -199,7 +199,6 @@ public class MainActivity extends AppCompatActivity implements MoveCallback {
                     DELAY += 100;
                 }
             }
-            Log.d(TAG, "Adjusted speed: " + DELAY);
         });
     }
 

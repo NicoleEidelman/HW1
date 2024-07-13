@@ -63,12 +63,16 @@ public class MoveDetector {
 
 
             }
-            if (currentTime - timeStampY > 1000) {
-                timeStampY = System.currentTimeMillis();
-                if (y > 6.0 || y < -6.0) {
-                    if (moveCallback != null) {
-                        moveCallback.adjustSpeed(y > 0);
-                    }
+
+                if (y > 1.5 || y < -1.5) {
+                    if(y>0){
+                        if (moveCallback != null){
+                            moveCallback.adjustSpeed(true);
+                        }
+                    }else{
+                        if (moveCallback != null){
+                            moveCallback.adjustSpeed(false);
+                        }
                 }
             }
 
