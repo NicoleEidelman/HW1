@@ -1,4 +1,6 @@
-package com.example.hw1;
+package com.example.hw1.Game;
+
+import com.example.hw1.R;
 
 public class player {
 

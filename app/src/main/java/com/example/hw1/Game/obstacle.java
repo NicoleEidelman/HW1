@@ -1,6 +1,7 @@
-package com.example.hw1;
+package com.example.hw1.Game;
 
 import com.example.hw1.Interface.GameObject;
+import com.example.hw1.R;
 
 public class obstacle implements GameObject {
 

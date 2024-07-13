@@ -1,4 +1,4 @@
-package com.example.hw1;
+package com.example.hw1.Game;
 
 import com.example.hw1.Interface.GameObject;
 
@@ -12,11 +12,12 @@ public class GameManager {
     private static final int MAXLIVES = 3;
     private static final int ROW = 7;
     private static final int MIN = 0;
-    private final player player;
+    private final com.example.hw1.Game.player player;
     private final List<GameObject> gameObjects;
     private int lives = 3;
     private int timerCounter = 1;
     private GameObject collidedObject;
+    private int score=0;
 
     public GameManager() {
         player = new player();
@@ -118,4 +119,9 @@ public class GameManager {
     public GameObject getCollidedObject() {
         return collidedObject;
     }
+
+    public int getScore() {
+        return score++;
+    }
+
 }

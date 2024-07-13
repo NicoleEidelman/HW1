@@ -1,4 +1,4 @@
-package com.example.hw1;
+package com.example.hw1.Utilities;
 
 import android.content.Context;
 import android.os.Build;

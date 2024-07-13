@@ -6,13 +6,21 @@
     android:id="@+id/mainScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main_screen">
+    tools:context=".Activity.main_screen">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/main_background"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/main_LBL_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+         />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/main_LBL_title"
@@ -23,6 +31,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_centerInParent="true"
+        android:layout_below="@id/main_LBL_info"
         android:layout_marginBottom="16dp"
         android:textColor="#88002AFF"
         />
@@ -37,8 +46,7 @@
         android:backgroundTint="#4DEBFF"
         android:textColor="#296161"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"
-        />
+        android:layout_marginBottom="16dp"/>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/main_BTN_sensor"
@@ -52,16 +60,18 @@
         android:textStyle="bold"
         android:layout_marginBottom="16dp"/>
 
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iceAge_IMG_ice_cubes"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:scaleType="fitCenter"
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/main_BTN_top_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/main_LBL_title"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/ice_cubes2"
-
-        />
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="209dp"
+        android:backgroundTint="#B40090FF"
+        android:text="TOP 10"
+        android:textColor="#296161"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

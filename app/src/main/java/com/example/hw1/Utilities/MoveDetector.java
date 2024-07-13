@@ -13,30 +13,28 @@ public class MoveDetector {
     private SensorManager sensorManager;
     private Sensor sensor;
     private SensorEventListener sensorEventListener;
-
-    private int moveCountX = 0;
-    private long timeStamp = 0L;
+    private long timeStampY = 0L;
+    private long timeStampX = 0L;
     private MoveCallback moveCallback;
 
 
 
     public MoveDetector(Context context,MoveCallback moveCallback) {
         this.sensorManager = (SensorManager) context.getSystemService(context.SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);//The MoveDetector class registers a sensor listener for the accelerometer.
         this.moveCallback = moveCallback;
         intEventListener();
     }
 
-    public int getMoveCountX() {
-        return moveCountX;
-    }
+
 
     private void intEventListener() {
-        this.sensorEventListener = new SensorEventListener() {
+        this.sensorEventListener = new SensorEventListener() { //When the sensor values change, the onSensorChanged method is called.
             @Override
             public void onSensorChanged(SensorEvent event) {
                 float x = event.values[0];
-                calculateMove(x);
+                float y = event.values[1];
+                calculateMove(x, y);
 
             }
 
@@ -47,11 +45,11 @@ public class MoveDetector {
         };
     }
 
-    private void calculateMove(float x) {
+    private void calculateMove(float x,float y) {
 
         long currentTime = System.currentTimeMillis();
-        if (currentTime - timeStamp > 500) {
-            timeStamp = System.currentTimeMillis();
+        if (currentTime - timeStampX > 500) {
+            timeStampX = System.currentTimeMillis();
             if (x > 1.5 || x < -1.5) {
                 if (x > 0) {
                     if(moveCallback!=null){
@@ -64,6 +62,14 @@ public class MoveDetector {
                 }
 
 
+            }
+            if (currentTime - timeStampY > 1000) {
+                timeStampY = System.currentTimeMillis();
+                if (y > 6.0 || y < -6.0) {
+                    if (moveCallback != null) {
+                        moveCallback.adjustSpeed(y > 0);
+                    }
+                }
             }
 
         }
